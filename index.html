@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando a fonte do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Product Card Design</title>
+</head>
+<body>
+
+   <div class="container">
+       <div class="product">
+           <div class="image">
+               <img class="product-image" src="images/orange.png" alt="Produto laranja">
+           </div>
+           <div class="color">
+               <span class="orange active" data-image="images/orange.png" data-color="#DE522F"></span>
+               <span class="green" data-image="images/green.png" data-color="#9ABE62"></span>
+               <span class="black" data-image="images/black.png" data-color="#222627"></span>
+               <span class="red" data-image="images/red.png" data-color="#B41D26"></span>
+           </div>
+           <div class="title">
+               Velocity Nitro Men's Running Shoes
+           </div>
+           <div class="detail">
+               <p>Price: <span>$50</span></p>
+               <a href="#">Add To Cart</a>
+           </div>
+       </div>
+   </div>
+
+   <!-- Link para o jQuery -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <!-- Script para mudança de cor e imagem -->
+   <script>
+       $(".color span").click(function(){
+           $(".color span").removeClass("active");
+           $(this).addClass("active");
+
+           // Alterando a cor do texto e do botão
+           $(".detail span").css("color", $(this).attr("data-color"));
+           $(".detail a").css("background", $(this).attr("data-color"));
+
+           // Alterando a imagem do produto
+           $(".product-image").attr("src", $(this).attr("data-image"));
+
+           // Alterando a cor de fundo do body
+           $("body").css("background", $(this).attr("data-color"));
+       });
+   </script>
+
+</body>
+</html>
